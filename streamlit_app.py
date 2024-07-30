@@ -48,13 +48,13 @@ with st.form(key="action_plan_form"):
     tzinfo = timezone(timedelta(hours=timezone_offset))
     date = datetime.now(tzinfo)
     name = st.text_input(label="Name")
-    machine_name = st.selectbox("Machine", machine_name,placeholder = "Select Machine")
+    machine_name = st.selectbox("Machine", machine_name,index = None,placeholder = "Select Machine")
     problem = st.text_area(label="Problem Details")
     action = st.text_area(label="Action Details")
-    type_cate = st.selectbox("Type", type_cat ,placeholder = "Select Type")
-    tech = st.selectbox("Assigned To", maintenance_names ,placeholder = "Select Maintenenace Tech")
+    type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
+    tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Tech")
     d = st.date_input("Date Of Completion", datem ,format="DD/MM/YYYY" )
-    f = st.selectbox("Shift Of Completion", maintenance_names ,placeholder = "Select Maintenenace Tech")
+    f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Maintenenace Tech")
 
     submit_button = st.form_submit_button(label="Submit")
 
