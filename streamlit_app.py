@@ -74,9 +74,9 @@ with st.form(key="action_plan_form"):
                         "Machine": machine_name,
                         "Problem": problem,
                         "Action": action,
-                        "Type":type_cate
-                        "Assigned To":tech
-                        "Date Of Completion": d
+                        "Type":type_cate,
+                        "Assigned To":tech,
+                        "Date Of Completion": d,
                         "Shift Of Completion" : f
                     }
                 ]
