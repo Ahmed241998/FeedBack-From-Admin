@@ -40,7 +40,7 @@ maintenance_names = [
     "Gehad Refaat Mohamed"
 ]
 type_cat = ['Short Term','Long Term']
-datem = datetime.today().strftime("%d-%m-%Y")
+datem = datetime.today().strftime("%d-%m-%Y").date()
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
