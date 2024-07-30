@@ -52,7 +52,7 @@ with st.form(key="action_plan_form"):
     problem = st.text_area(label="Problem Details")
     action = st.text_area(label="Action Details")
     type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
-    tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Tech")
+    tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
     d = st.date_input("Date Of Completion", datem ,format="DD/MM/YYYY" )
     f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Maintenenace Tech")
 
