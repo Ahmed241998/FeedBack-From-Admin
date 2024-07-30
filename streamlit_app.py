@@ -40,13 +40,13 @@ maintenance_names = [
     "Gehad Refaat Mohamed"
 ]
 type_cat = ['Short Term','Long Term']
-datem = datetime.today().date()
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
     timezone_offset = 3  # Pacific Standard Time (UTC−08:00)
     tzinfo = timezone(timedelta(hours=timezone_offset))
     date = datetime.now(tzinfo)
+    datem = date.date()
     name = st.text_input(label="Name")
     machine_name = st.selectbox("Machine", machine_name,index = None,placeholder = "Select Machine")
     problem = st.text_area(label="Problem Details")
