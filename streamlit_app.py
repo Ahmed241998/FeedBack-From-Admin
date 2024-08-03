@@ -37,9 +37,10 @@ maintenance_names = [
     "Hassan Abdallah Mohamed",
     "Ahmed Soliman EL Kotb EL Afify",
     "Mohamed Saad Saleh Mahmoud",
-    "Gehad Refaat Mohamed"
+    "Gehad Refaat Mohamed",
+    "Others"
 ]
-type_cat = ['Short Term','Long Term']
+type_cat = ['Short Term','Mid Term','Long Term']
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
