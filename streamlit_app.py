@@ -54,7 +54,7 @@ with st.form(key="action_plan_form"):
     action = st.text_area(label="Action Details")
     type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
     tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
-    d = st.date_input("Date Of Completion", datem ,format="DD/MM/YYYY" )
+    d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
     f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
 
     submit_button = st.form_submit_button(label="Submit")
