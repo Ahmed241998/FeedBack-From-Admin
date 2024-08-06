@@ -58,24 +58,4 @@ with st.form(key="action_plan_form"):
             d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
             f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
             submit_button = st.form_submit_button(label="Submit2")
-            
-            # Create a new row of vendor data
-            action_data = pd.DataFrame(
-                [
-                    {
-                        "Date": date,
-                        "Name": name,
-                        "Machine": machine_name,
-                        "Problem": problem,
-                        "Action": action,
-                        "Type":type_cate,
-                        "Assigned To":tech,
-                        "Date Of Completion": d,
-                        "Shift Of Completion" : f
-                    }
-                ]
-            )
-            # Add the new vendor data to the existing data
-            updated_df = pd.concat([existing_data, action_data], ignore_index=True)
-            conn.update(worksheet='Action Details',data=updated_df)
             st.success("Action is submitted With Full Data")
