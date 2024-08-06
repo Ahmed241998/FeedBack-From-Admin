@@ -44,28 +44,23 @@ type_cat = ['Short Term','Mid Term','Long Term']
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
-    timezone_offset = 3  # Pacific Standard Time (UTC−08:00)
-    tzinfo = timezone(timedelta(hours=timezone_offset))
-    date = datetime.now(tzinfo)
-    datem = date.date()
-    name = st.text_input(label="Name")
     machine_name = st.selectbox("Machine", machine_name,index = None,placeholder = "Select Machine")
-    problem = st.text_area(label="Problem Details")
-    action = st.text_area(label="Action Details")
-    type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
-    tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
-    d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
-    f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
-
     submit_button = st.form_submit_button(label="Submit")
 
     # If the submit button is pressed
     if submit_button:
         # Check if all mandatory fields are filled
-        if not name or not machine_name:
-            st.warning("Ensure all mandatory fields are filled.")
+        if not machine_name:
+            st.warning("Ensure To Select Machine Name")
             st.stop()
         else:
+            action = st.selectbox("Action",existing_data[['Machine'] == machine_name],index=None,placeholder = "Select Action")
+            type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
+            tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
+            d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
+            f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
+            submit_button = st.form_submit_button(label="Submit")
+            
             # Create a new row of vendor data
             action_data = pd.DataFrame(
                 [
@@ -86,4 +81,3 @@ with st.form(key="action_plan_form"):
             updated_df = pd.concat([existing_data, action_data], ignore_index=True)
             conn.update(worksheet='Action Details',data=updated_df)
             st.success("Action is submitted With Full Data")
-
