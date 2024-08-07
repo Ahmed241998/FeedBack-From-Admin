@@ -45,7 +45,7 @@ shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
     machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
-    submit_button = st.form_submit_button(label="Submit")
+    submit_button = st.form_submit_button(label="Submit",disabled=True)
     # If the submit button is pressed
     if submit_button:
         # Check if all mandatory fields are filled
