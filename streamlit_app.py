@@ -46,9 +46,9 @@ shift = ["|","||","|||"]
 with st.form(key="action_plan_form"):
     machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
     if 'clicked' not in st.session_state:
-    st.session_state.clicked = False
+        st.session_state.clicked = False
     def click_button():
-    st.session_state.clicked = True
+        st.session_state.clicked = True
     submit_button = st.form_submit_button(label="Submit",on_click=click_button)
     # If the submit button is pressed
     if submit_button:
