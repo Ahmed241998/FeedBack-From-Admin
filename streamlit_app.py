@@ -61,6 +61,6 @@ with st.form(key="action_plan_form"):
             maintenance_feedback = st.text_area(label="Maintenance Feedback")
             submit_button1 = st.form_submit_button(label="Confirm")
             if submit_button1 :
-                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type" = type_cate
+                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
                 conn.update(worksheet='Operators Data',data=existing_data)
                 st.success("Action is submitted With Full Data")
