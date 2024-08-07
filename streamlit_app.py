@@ -51,7 +51,7 @@ with st.form(key="action_plan_form"):
     d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
     f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
     maintenance_feedback = st.text_area(label="Maintenance Feedback")
-    submit_button = st.form_submit_button(label="Submit")
+    submit_button = st.button(label="Submit")
     # If the submit button is pressed
     if submit_button:
         if not machine_name or not action:
