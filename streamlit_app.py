@@ -43,15 +43,15 @@ maintenance_names = [
 type_cat = ['Short Term','Mid Term','Long Term']
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
+machine_name = st.selectbox("Machine", machine_name_lst,index= 5 )
 with st.form(key="action_plan_form"):
-    machine_name = st.selectbox("Machine", machine_name_lst,index= 5 )
     action = st.selectbox("Action",existing_data[existing_data['Machine'] == machine_name]['Action'].tolist(),index=None,placeholder = "Select Action")
     type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
     tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
     d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
     f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
     maintenance_feedback = st.text_area(label="Maintenance Feedback")
-    submit_button = st.button(label="Submit")
+    submit_button = st.form_submit_button(label="Submit")
     # If the submit button is pressed
     if submit_button:
         if not machine_name or not action:
