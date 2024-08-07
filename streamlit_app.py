@@ -58,6 +58,10 @@ with st.form(key="action_plan_form"):
             st.warning("Ensure To Select Machine Name")
             st.stop()
         else:
-                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
-                conn.update(worksheet='Operators Data',data=existing_data)
-                st.success("Action is submitted With Full Data")
+            existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
+            existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Assigned To"] = tech
+            existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Date Of Completion"] = d
+            existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Shift Of Completion"] = f
+            existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Maintenance Feedback"] = maintenance_feedback
+            conn.update(worksheet='Action Details',data=existing_data)
+            st.success("Action is submitted With Full Data")
