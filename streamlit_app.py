@@ -15,7 +15,7 @@ existing_data = conn.read(worksheet= 'Action Details',usecols = list(range(8)) ,
 existing_data = existing_data.dropna(how="all")
 
 # List of Machine Names
-machine_name = [
+machine_name_lst = [
     "LSH01",
     "LSH02",
     "LSH06",
@@ -44,7 +44,7 @@ type_cat = ['Short Term','Mid Term','Long Term']
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
-    machine_name = st.selectbox("Machine", machine_name,index = None,placeholder = "Select Machine")
+    machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
     submit_button = st.form_submit_button(label="Submit")
     # If the submit button is pressed
     if submit_button:
@@ -58,5 +58,9 @@ with st.form(key="action_plan_form"):
             tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
             d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
             f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
-            submit_button = st.form_submit_button(label="Submit2")
-            st.success("Action is submitted With Full Data")
+            maintenance_feedback = st.text_area(label="Maintenance Feedback")
+            submit_button1 = st.form_submit_button(label="Confirm")
+            if submit_button1 :
+                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type" = type_cate
+                conn.update(worksheet='Operators Data',data=existing_data)
+                st.success("Action is submitted With Full Data")
