@@ -53,7 +53,7 @@ with st.form(key="action_plan_form"):
             st.warning("Ensure To Select Machine Name")
             st.stop()
         else:
-            action = st.selectbox("Action",existing_data[['Machine'] == machine_name]['Actions'].tolist(),index=None,placeholder = "Select Action")
+            action = st.selectbox("Action",existing_data[existing_data['Machine'] == machine_name]['Actions'].tolist(),index=None,placeholder = "Select Action")
             type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
             tech = st.selectbox("Assigned To", maintenance_names,index =None ,placeholder = "Select Maintenenace Member")
             d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
