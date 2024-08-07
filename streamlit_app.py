@@ -47,7 +47,7 @@ with st.form(key="action_plan_form"):
     machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
     if "Submit" not in st.session_state:
         st.session_state["Submit"] = False
-    if "button2" not in st.session_state:
+    if "Confirm" not in st.session_state:
         st.session_state["Confirm"] = False
     submit_button = st.button(label="Submit")
     # If the submit button is pressed
