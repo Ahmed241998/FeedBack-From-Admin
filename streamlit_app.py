@@ -45,13 +45,14 @@ shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
     machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
-    if 'clicked' not in st.session_state:
-        st.session_state.clicked = False
-    def click_button():
-        st.session_state.clicked = True
-    submit_button = st.form_submit_button(label="Submit",on_click=click_button)
+    if "button1" not in st.session_state:
+        st.session_state["button1"] = False
+    if "button2" not in st.session_state:
+        st.session_state["button2"] = False
+    submit_button = st.form_submit_button(label="Submit")
     # If the submit button is pressed
     if submit_button:
+        st.session_state["Submit"] = not st.session_state["Submit"]
         # Check if all mandatory fields are filled
         if not machine_name:
             st.warning("Ensure To Select Machine Name")
@@ -64,7 +65,9 @@ with st.form(key="action_plan_form"):
             f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
             maintenance_feedback = st.text_area(label="Maintenance Feedback")
             submit_button1 = st.form_submit_button(label="Confirm")
-            if submit_button1 :
-                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
-                conn.update(worksheet='Operators Data',data=existing_data)
-                st.success("Action is submitted With Full Data")
+            if st.session_state["Submit"]:
+                if st.button("Button2"):
+                    st.session_state["Confirm"] = not st.session_state["Confirm"]
+                    existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
+                    conn.update(worksheet='Operators Data',data=existing_data)
+                    st.success("Action is submitted With Full Data")
