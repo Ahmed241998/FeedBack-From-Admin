@@ -45,11 +45,11 @@ shift = ["|","||","|||"]
 # Onboarding New Vendor Form
 with st.form(key="action_plan_form"):
     machine_name = st.selectbox("Machine", machine_name_lst,index = None,placeholder = "Select Machine")
-    if "button1" not in st.session_state:
-        st.session_state["button1"] = False
+    if "Submit" not in st.session_state:
+        st.session_state["Submit"] = False
     if "button2" not in st.session_state:
-        st.session_state["button2"] = False
-    submit_button = st.form_submit_button(label="Submit")
+        st.session_state["Confirm"] = False
+    submit_button = st.button(label="Submit")
     # If the submit button is pressed
     if submit_button:
         st.session_state["Submit"] = not st.session_state["Submit"]
@@ -64,9 +64,9 @@ with st.form(key="action_plan_form"):
             d = st.date_input("Date Of Completion", value = None ,format="DD/MM/YYYY" )
             f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
             maintenance_feedback = st.text_area(label="Maintenance Feedback")
-            submit_button1 = st.form_submit_button(label="Confirm")
+            submit_button1 = st.button(label="Confirm")
             if st.session_state["Submit"]:
-                if st.button("Button2"):
+                if st.button("Confirm"):
                     st.session_state["Confirm"] = not st.session_state["Confirm"]
                     existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
                     conn.update(worksheet='Operators Data',data=existing_data)
