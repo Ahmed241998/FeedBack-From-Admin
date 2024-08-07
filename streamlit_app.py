@@ -65,9 +65,8 @@ with st.form(key="action_plan_form"):
             f = st.selectbox("Shift Of Completion",shift ,index =None ,placeholder = "Select Shift Of Completion")
             maintenance_feedback = st.text_area(label="Maintenance Feedback")
             submit_button1 = st.form_submit_button(label="Confirm")
-            if st.session_state["Submit"]:
-                if st.button("Confirm"):
-                    st.session_state["Confirm"] = not st.session_state["Confirm"]
-                    existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
-                    conn.update(worksheet='Operators Data',data=existing_data)
-                    st.success("Action is submitted With Full Data")
+            if st.button("Confirm"):
+                st.session_state["Confirm"] = not st.session_state["Confirm"]
+                existing_data.at[existing_data[existing_data['Action'] == action].index.to_list()[0],"Type"] = type_cate
+                conn.update(worksheet='Operators Data',data=existing_data)
+                st.success("Action is submitted With Full Data")
