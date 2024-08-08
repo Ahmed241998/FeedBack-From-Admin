@@ -11,7 +11,7 @@ st.title("L'Oréal Action Plan")
 conn = st.experimental_connection('gsheets',type=GSheetsConnection)
 
 # Ftech Exisiting Vendors data
-existing_data = conn.read(worksheet= 'Action Details',usecols = list(range(8)) , ttl = 5)
+existing_data = conn.read(worksheet= 'Action Details',usecols = list(range(11)) , ttl = 5)
 existing_data = existing_data.dropna(how="all")
 
 # List of Machine Names
