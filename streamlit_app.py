@@ -57,7 +57,7 @@ maintenance_names = [
 type_cat = ['Short Term','Mid Term','Long Term']
 shift = ["|","||","|||"]
 # Onboarding New Vendor Form
-machine_name = st.selectbox("Machine", machine_name_lst,index= 5 )
+machine_name = st.selectbox("Machine", machine_name_lst,index= 0)
 with st.form(key="action_plan_form"):
     action = st.selectbox("Action",existing_data[existing_data['Machine'] == machine_name]['Action'].tolist(),index=None,placeholder = "Select Action")
     type_cate = st.selectbox("Type", type_cat ,index =None,placeholder = "Select Type")
