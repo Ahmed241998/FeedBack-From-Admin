@@ -21,7 +21,21 @@ machine_name_lst = [
     "LSH06",
     "LSH04",
     "LSH05",
-    "All Machines"
+    "Kit1",
+    "Kit2",
+    "Kit3",
+    "Kit4",
+    "Tub1",
+    "Tub2",
+    "Tub3",
+    "LJAR",
+    "LSH07",
+    "LSH09",
+    "LSF06",
+    "LSF07",
+    "LSF09",
+    "LSF10",
+    "Shampoo Cell"
 ]
 maintenance_names = [
     "Abanoub M",
